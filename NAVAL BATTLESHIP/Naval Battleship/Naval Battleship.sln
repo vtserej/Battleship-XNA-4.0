@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Naval_Battleship", "Naval Battleship\Naval_Battleship\Naval_Battleship.csproj", "{E340EB28-379D-415B-B8FB-4F04B28889EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XEngine", "..\..\XENGINE\XEngine\XEngine\XEngine.csproj", "{081787BD-6934-4719-B264-A5B93EED6454}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "Content", "Content\Content.contentproj", "{E79BA54D-0B4A-4B83-A9C4-70E0B9083ED1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E340EB28-379D-415B-B8FB-4F04B28889EB}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{E340EB28-379D-415B-B8FB-4F04B28889EB}.Debug|x86.ActiveCfg = Debug|x86
+		{E340EB28-379D-415B-B8FB-4F04B28889EB}.Debug|x86.Build.0 = Debug|x86
+		{E340EB28-379D-415B-B8FB-4F04B28889EB}.Release|Any CPU.ActiveCfg = Release|x86
+		{E340EB28-379D-415B-B8FB-4F04B28889EB}.Release|x86.ActiveCfg = Release|x86
+		{E340EB28-379D-415B-B8FB-4F04B28889EB}.Release|x86.Build.0 = Release|x86
+		{081787BD-6934-4719-B264-A5B93EED6454}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{081787BD-6934-4719-B264-A5B93EED6454}.Debug|x86.ActiveCfg = Debug|x86
+		{081787BD-6934-4719-B264-A5B93EED6454}.Debug|x86.Build.0 = Debug|x86
+		{081787BD-6934-4719-B264-A5B93EED6454}.Release|Any CPU.ActiveCfg = Release|x86
+		{081787BD-6934-4719-B264-A5B93EED6454}.Release|x86.ActiveCfg = Release|x86
+		{081787BD-6934-4719-B264-A5B93EED6454}.Release|x86.Build.0 = Release|x86
+		{E79BA54D-0B4A-4B83-A9C4-70E0B9083ED1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E79BA54D-0B4A-4B83-A9C4-70E0B9083ED1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E79BA54D-0B4A-4B83-A9C4-70E0B9083ED1}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{E79BA54D-0B4A-4B83-A9C4-70E0B9083ED1}.Release|x86.ActiveCfg = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
