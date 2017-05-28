@@ -81,13 +81,13 @@ namespace NavalBattleship.Screens
             {
                 Label textPlayer = new Label(new Function(PlayerName), Layout.CalculateTotalLayout(new Rectangle(200, 685, 200, 30)), Sprite.SpriteFont, Aligment.Left);
 
-                Label tip = new Label(Game.GameStrings.GetString("Tip"), Layout.CalculateTotalLayout(new Rectangle(69, 6, 200, 30)), Sprite.SpriteFont, Aligment.Left);
+                Label tip = new Label(Game.GameStrings.GetString("Tip"), Layout.CalculateTotalLayout(new Rectangle(69, 6, 500, 30)), Sprite.SpriteFont, Aligment.Left);
 
                 Label texNamePlayer = new Label(Game.GameStrings.GetString("PlayerName"), Layout.CalculateTotalLayout(new Rectangle(69, 685, 200, 30)), Sprite.SpriteFont, Aligment.Left);
 
                 Label shipSel = new Label(Game.GameStrings.GetString("SelectedShip"), Layout.CalculateTotalLayout(new Rectangle(770, 685, 200, 30)), Sprite.SpriteFont, Aligment.Left);
 
-                Label ship = new Label(new Function(SelectedShip), Layout.CalculateTotalLayout(new Rectangle(910, 685, 200, 30)), Sprite.SpriteFont, Aligment.Left);
+                Label ship = new Label(new Function(SelectedShip), Layout.CalculateTotalLayout(new Rectangle(890, 685, 200, 30)), Sprite.SpriteFont, Aligment.Left);
 
                 Label textVersion = new Label("Version 1.0", Layout.CalculateTotalLayout(new Rectangle(1100, 6, 150, 30)), Sprite.SpriteFont, Aligment.Center);
 

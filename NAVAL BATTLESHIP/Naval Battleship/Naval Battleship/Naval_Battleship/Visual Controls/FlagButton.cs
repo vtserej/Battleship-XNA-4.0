@@ -28,10 +28,9 @@ namespace NavalBattleship.Controls
             this.text = text;   
             Texture2D textureID = EngineContent.GetTextureByName(textureFlag);
             flag = new Flag(flagPos, new Vector3(1.1f, 1.7f, 2), textureID, rectangle);
-            //port
-            //textSize = Sprite.SpriteFont.MeasureString(text);
-            //textPosition = new Vector2(areaRectangle.X + (areaRectangle.Width - textSize.X) / 2,
-            //                            areaRectangle.Y + areaRectangle.Height);
+            textSize = Sprite.SpriteFont.MeasureString(text);
+            textPosition = new Vector2(areaRectangle.X + (areaRectangle.Width - textSize.X) / 2,
+                                        areaRectangle.Y + areaRectangle.Height);
             base.fontColor = Color.WhiteSmoke;  
         }
 
@@ -94,7 +93,7 @@ namespace NavalBattleship.Controls
 
             flag.Draw();
 
-            //Sprite.SpriteBatch.DrawString(Sprite.SpriteFont, text, textPosition, Color.White);
+            Sprite.SpriteBatch.DrawString(Sprite.SpriteFont, text, textPosition, Color.White);
         }
     }
 }

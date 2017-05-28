@@ -90,6 +90,7 @@ namespace Xengine
             Globals.ScreenHeight = height;
             Globals.ScreenWidth = widht;
             DxHelper.Create();
+
             return graphics;
         }
 

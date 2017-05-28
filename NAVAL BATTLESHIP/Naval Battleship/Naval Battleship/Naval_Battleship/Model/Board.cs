@@ -229,32 +229,25 @@ namespace NavalBattleship.Models
             Sprite.BasicEffect.Texture = EngineContent.GetTextureByName("boardCell");
             Sprite.BasicEffect.LightingEnabled = false;
 
-            //Sprite.BasicEffect.Begin();
+            foreach (EffectPass pass in Sprite.BasicEffect.CurrentTechnique.Passes)
+            {
+                pass.Apply();
 
-            //foreach (EffectPass pass in Sprite.BasicEffect.CurrentTechnique.Passes)
-            //{
-            //    pass.Begin();
-
-            //    Sprite.Graphics.GraphicsDevice.SamplerStates[0].MinFilter = TextureFilter.Anisotropic;
-            //    Sprite.Graphics.GraphicsDevice.SamplerStates[0].MagFilter= TextureFilter.Anisotropic;
-            //    Sprite.Graphics.GraphicsDevice.SamplerStates[0].MipFilter  = TextureFilter.Linear;
-            //    Sprite.Graphics.GraphicsDevice.SamplerStates[0].MaxAnisotropy = 16; 
-            //    Sprite.BasicEffect.CommitChanges();
+                //PORT
+                //Sprite.Graphics.GraphicsDevice.SamplerStates[0].MinFilter = TextureFilter.Anisotropic;
+                //Sprite.Graphics.GraphicsDevice.SamplerStates[0].MagFilter = TextureFilter.Anisotropic;
+                //Sprite.Graphics.GraphicsDevice.SamplerStates[0].MipFilter = TextureFilter.Linear;
+                //Sprite.Graphics.GraphicsDevice.SamplerStates[0].MaxAnisotropy = 16;
+                //Sprite.BasicEffect.CommitChanges();
 
 
-            //    Sprite.Graphics.GraphicsDevice.VertexDeclaration = Sprite.VertexDeclaration;  
-
-            //    Sprite.Graphics.GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>(
-            //       PrimitiveType.TriangleList,
-            //       pointList,
-            //       0,  // vertex buffer offset to add to each element of the index buffer
-            //       300  // number of vertices in pointList
-            //       );
-                
-            //    pass.End();
-            //} 
-
-            //Sprite.BasicEffect.End();
+                Sprite.Graphics.GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>(
+                   PrimitiveType.TriangleList,
+                   pointList,
+                   0,  // vertex buffer offset to add to each element of the index buffer
+                   300  // number of vertices in pointList
+                   );
+            }
             Sprite.BasicEffect.LightingEnabled = true;
             Sprite.BasicEffect.View = Camara.View;    
         }

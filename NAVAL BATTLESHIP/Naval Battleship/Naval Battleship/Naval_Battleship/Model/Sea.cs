@@ -37,8 +37,6 @@ namespace NavalBattleship.Models
                 }
             }
 
-            //TODO PORTmyVertexDeclaration = new VertexDeclaration(Sprite.Graphics.GraphicsDevice, VertexPositionTexture.VertexElements);
-
             return waterVertices;
         }
 
@@ -99,7 +97,6 @@ namespace NavalBattleship.Models
         public new void Draw()
         {
             return;
-
             float time = (float)Manager.Instance.GameTime.TotalGameTime.TotalMilliseconds / 1500.0f;
             Vector4 waveFreqs = new Vector4(1, 2, 0.5f, 1.5f);
             Vector4 waveHeights = new Vector4(0.3f, 0, 0.2f, 0.3f);
@@ -114,40 +111,35 @@ namespace NavalBattleship.Models
             for (int i = 0; i < 4; i++)
                 waveDirs[i].Normalize();
 
-            effect.CurrentTechnique = effect.Techniques["OceanWater"];
-            effect.Parameters["xWorld"].SetValue(Matrix.Identity * Matrix.CreateTranslation(-50, 0, 100));
-            effect.Parameters["xView"].SetValue(Camara.View);
-            effect.Parameters["xBumpMap"].SetValue(waterBumps);
-            effect.Parameters["xProjection"].SetValue(Camara.Projection);
-            effect.Parameters["xBumpStrength"].SetValue(0.5f);
+            //effect.CurrentTechnique = effect.Techniques["OceanWater"];
+            //effect.Parameters["xWorld"].SetValue(Matrix.Identity * Matrix.CreateTranslation(-50, 0, 100));
+            //effect.Parameters["xView"].SetValue(Camara.View);
+            //effect.Parameters["xBumpMap"].SetValue(waterBumps);
+            //effect.Parameters["xProjection"].SetValue(Camara.Projection);
+            //effect.Parameters["xBumpStrength"].SetValue(0.5f);
 
-            effect.Parameters["xCubeMap"].SetValue(skyboxTexture);
-            effect.Parameters["xTexStretch"].SetValue(4.0f);
-            effect.Parameters["xCameraPos"].SetValue(Camara.Position);
-            effect.Parameters["xTime"].SetValue(time);
+            //effect.Parameters["xCubeMap"].SetValue(skyboxTexture);
+            //effect.Parameters["xTexStretch"].SetValue(4.0f);
+            //effect.Parameters["xCameraPos"].SetValue(Camara.Position);
+            //effect.Parameters["xTime"].SetValue(time);
 
-            effect.Parameters["xWaveSpeeds"].SetValue(waveFreqs);
-            effect.Parameters["xWaveHeights"].SetValue(0);
-            effect.Parameters["xWaveLengths"].SetValue(waveLengths);
-            effect.Parameters["xWaveDir0"].SetValue(waveDirs[0]);
-            effect.Parameters["xWaveDir1"].SetValue(waveDirs[1]);
-            effect.Parameters["xWaveDir2"].SetValue(waveDirs[2]);
-            effect.Parameters["xWaveDir3"].SetValue(waveDirs[3]);
+            //effect.Parameters["xWaveSpeeds"].SetValue(waveFreqs);
+            //effect.Parameters["xWaveHeights"].SetValue(0);
+            //effect.Parameters["xWaveLengths"].SetValue(waveLengths);
+            //effect.Parameters["xWaveDir0"].SetValue(waveDirs[0]);
+            //effect.Parameters["xWaveDir1"].SetValue(waveDirs[1]);
+            //effect.Parameters["xWaveDir2"].SetValue(waveDirs[2]);
+            //effect.Parameters["xWaveDir3"].SetValue(waveDirs[3]);
 
             //TODO PORT
-            //effect.Begin();
-            //foreach (EffectPass pass in effect.CurrentTechnique.Passes)
-            //{
-            //    pass.Begin();
+            foreach (EffectPass pass in effect.CurrentTechnique.Passes)
+            {
+                pass.Apply();
 
-            //    Sprite.Graphics.GraphicsDevice.Vertices[0].SetSource(waterVertexBuffer, 0, VertexPositionTexture.SizeInBytes);
-            //    Sprite.Graphics.GraphicsDevice.Indices = waterIndexBuffer;
-            //    Sprite.Graphics.GraphicsDevice.VertexDeclaration = myVertexDeclaration;
-            //    Sprite.Graphics.GraphicsDevice.DrawIndexedPrimitives(PrimitiveType.TriangleStrip, 0, 0, waterWidth * waterHeight, 0, waterWidth * 2 * (waterHeight - 1) - 2);
-
-            //    pass.End();
-            //}
-            //effect.End();
+                //Sprite.Graphics.GraphicsDevice.Vertices[0].SetSource(waterVertexBuffer, 0, VertexPositionTexture.SizeInBytes);
+                Sprite.Graphics.GraphicsDevice.Indices = waterIndexBuffer;
+                Sprite.Graphics.GraphicsDevice.DrawIndexedPrimitives(PrimitiveType.TriangleStrip, 0, 0, waterWidth * waterHeight, 0, waterWidth * 2 * (waterHeight - 1) - 2);
+            }
         }
     }
 }

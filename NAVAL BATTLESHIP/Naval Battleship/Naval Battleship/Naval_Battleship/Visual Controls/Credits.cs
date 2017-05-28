@@ -109,16 +109,17 @@ namespace NavalBattleship.Controls
 
         public void Draw()
         {
+            // PORT Sprite.SpriteBatch.GraphicsDevice.RasterizerState.ScissorTestEnable = true;
             Sprite.Graphics.GraphicsDevice.ScissorRectangle = areaRectangle;   
             Sprite.SpriteBatch.Begin();
-            //TODO PORT Sprite.Graphics.GraphicsDevice.RenderState.ScissorTestEnable = true;
+
             for (int i = 0; i < text.Length; i++)
             {
                 Sprite.DrawCenterText(textPos, textOrigin, text[i], Sprite.SpriteFont);
                 textPos.Y += 25; ;
             }
-            textPos.Y = 0; 
-            //TODO PORT Sprite.Graphics.GraphicsDevice.RenderState.ScissorTestEnable = false;
+            textPos.Y = 0;
+            // PORT Sprite.SpriteBatch.GraphicsDevice.RasterizerState.ScissorTestEnable = false;
             Sprite.SpriteBatch.End(); 
         }
     }

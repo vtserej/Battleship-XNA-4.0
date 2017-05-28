@@ -57,26 +57,18 @@ namespace NavalBattleship.Particles
             Sprite.BasicEffect.Alpha = alpha; 
 
             Sprite.BasicEffect.LightingEnabled = false;
-            
-            //TODO PORT
-            //Sprite.BasicEffect.Begin();   
 
-            //foreach (EffectPass pass in Sprite.BasicEffect.CurrentTechnique.Passes)
-            //{
-            //    pass.Begin();
+            foreach (EffectPass pass in Sprite.BasicEffect.CurrentTechnique.Passes)
+            {
+                pass.Apply();
 
-            //    Sprite.Graphics.GraphicsDevice.VertexDeclaration = Sprite.VertexDeclaration;
-
-            //    Sprite.Graphics.GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>(
-            //        PrimitiveType.TriangleList,
-            //        pointList,
-            //        0,  // vertex buffer offset to add to each element of the index buffer
-            //        2  // number of vertices in pointList
-            //        );
-            //    pass.End();
-            //}
-
-            //Sprite.BasicEffect.End();
+                Sprite.Graphics.GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>(
+                    PrimitiveType.TriangleList,
+                    pointList,
+                    0,  // vertex buffer offset to add to each element of the index buffer
+                    2  // number of vertices in pointList
+                    );
+            }
 
             Sprite.BasicEffect.Alpha = 1;
             Sprite.BasicEffect.LightingEnabled = true;

@@ -125,38 +125,23 @@ namespace NavalBattleship.Models
             Sprite.BasicEffect.TextureEnabled = true;
             Sprite.BasicEffect.Texture = textureFlag;
 
-            //Sprite.BasicEffect.Begin();
+            foreach (EffectPass pass in Sprite.BasicEffect.CurrentTechnique.Passes)
+            {
+                pass.Apply();  
 
-            //foreach (EffectPass pass in Sprite.BasicEffect.CurrentTechnique.Passes)
-            //{
-            //    pass.Begin();
-
-            //    Sprite.Graphics.GraphicsDevice.VertexDeclaration = new VertexDeclaration(Sprite.Graphics.GraphicsDevice,
-            //              VertexPositionTexture.VertexElements);
-
-            //    Sprite.Graphics.GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>(
-            //       PrimitiveType.TriangleList,
-            //       pointList,
-            //       0,  // vertex buffer offset to add to each element of the index buffer
-            //       maxX * maxY * 2  // number of vertices in pointList
-            //       );
-
-            //    pass.End();
-            //}
-
-            //Sprite.BasicEffect.End();
+                Sprite.Graphics.GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>(
+                   PrimitiveType.TriangleList,
+                   pointList,
+                   0,  // vertex buffer offset to add to each element of the index buffer
+                   maxX * maxY * 2  // number of vertices in pointList
+                   );
+            }
 
             Sprite.BasicEffect.View = Camara.View;
 
             Sprite.BasicEffect.Projection = Camara.Projection;
 
-            Sprite.Graphics.GraphicsDevice.Viewport = original;
-
-            //Sprite.SpriteBatch.Begin();
-
-            //Sprite.DrawSprite(flagRect, Color.Red);
-
-            //Sprite.SpriteBatch.End();  
+            Sprite.Graphics.GraphicsDevice.Viewport = original; 
         }
     }
 }

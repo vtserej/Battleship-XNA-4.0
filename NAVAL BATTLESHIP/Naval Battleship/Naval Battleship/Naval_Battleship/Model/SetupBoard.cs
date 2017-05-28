@@ -57,32 +57,22 @@ namespace NavalBattleship.Models
             Sprite.BasicEffect.Texture = EngineContent.GetTextureByName("boardCell");
             Sprite.BasicEffect.LightingEnabled = false;
 
-            //TODO PORT
-            //Sprite.BasicEffect.Begin();
+            //Sprite.Graphics.GraphicsDevice.RenderState.FillMode = FillMode.WireFrame;      
+            //Sprite.Graphics.GraphicsDevice.RenderState.CullMode = CullMode.None;
 
-            ////Sprite.Graphics.GraphicsDevice.RenderState.FillMode = FillMode.WireFrame;      
-            ////Sprite.Graphics.GraphicsDevice.RenderState.CullMode = CullMode.None;
+            foreach (EffectPass pass in Sprite.BasicEffect.CurrentTechnique.Passes)
+            {
+                pass.Apply();
 
-            //foreach (EffectPass pass in Sprite.BasicEffect.CurrentTechnique.Passes)
-            //{
-            //    pass.Begin();
+                Sprite.Graphics.GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>(
+                   PrimitiveType.TriangleList,
+                   pointList,
+                   0,  // vertex buffer offset to add to each element of the index buffer
+                   300  // number of vertices in pointList
+                   );
+            }
 
-            //    Sprite.Graphics.GraphicsDevice.VertexDeclaration = new VertexDeclaration(Sprite.Graphics.GraphicsDevice,
-            //                                VertexPositionTexture.VertexElements);
-
-            //    Sprite.Graphics.GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>(
-            //       PrimitiveType.TriangleList,
-            //       pointList,
-            //       0,  // vertex buffer offset to add to each element of the index buffer
-            //       300  // number of vertices in pointList
-            //       );
-
-            //    pass.End();
-            //}
-
-            //Sprite.Graphics.GraphicsDevice.RenderState.FillMode = FillMode.Solid;
-
-            //Sprite.BasicEffect.End(); 
+            //TODO PORT Sprite.Graphics.GraphicsDevice.RenderState.FillMode = FillMode.Solid;
         }  
     }
 }

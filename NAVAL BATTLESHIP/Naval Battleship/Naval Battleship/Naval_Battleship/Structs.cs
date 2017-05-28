@@ -80,13 +80,6 @@ namespace NavalBattleship
             this.texCoord = texCoord;
         }
 
-        public static VertexElement[] VertexElements =
-             {
-            //TODO PORT 
-                 //new VertexElement(0, 0, VertexElementFormat.Vector3, VertexElementMethod.Default, VertexElementUsage.Position, 0),
-                 //new VertexElement(0, sizeof(float)*3, VertexElementFormat.Vector2, VertexElementMethod.Default, VertexElementUsage.TextureCoordinate, 0),
-             };
-
         public static int SizeInBytes = sizeof(float) * (3 + 2);
     }
 }

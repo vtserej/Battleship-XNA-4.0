@@ -76,6 +76,7 @@ namespace NavalBattleship
         {
 #if DEBUG
             graphics = DxManager.XNAInit(this, "content", 1280, 720);
+            //graphics = DxManager.XNAInit(this, "content", 1024, 768);
 #endif
 
 #if !DEBUG
@@ -123,8 +124,8 @@ namespace NavalBattleship
             Sprite.BasicEffect.EnableDefaultLighting();
 
             //effect load
-            //TODO PORT EngineContent.SetEffectList("effects\\");
-            //TODO PORT EngineContent.LoadEffects();          
+            //EngineContent.SetEffectList("effects\\");
+            //EngineContent.LoadEffects();          
 
             //texture load 
             EngineContent.SetTextureList("textures\\");
@@ -150,6 +151,10 @@ namespace NavalBattleship
 
             Sprite.SpriteFont = spriteFont;
             Sprite.Create();
+
+            SamplerState sState = new SamplerState();
+            sState.Filter = TextureFilter.Anisotropic;
+            Sprite.Graphics.GraphicsDevice.SamplerStates[0] = sState;
 
             manager.CreateScreens();
             manager.Camara.InitCamara();
@@ -207,7 +212,7 @@ namespace NavalBattleship
         {
             graphics.GraphicsDevice.Clear(Color.Black);
 
-            //TODO PORT Sprite.Graphics.GraphicsDevice.RenderState.DepthBufferEnable = true;
+            Sprite.Graphics.GraphicsDevice.DepthStencilState = DepthStencilState.Default;
 
             // TODO: Add your drawing code here
             manager.Draw(); 

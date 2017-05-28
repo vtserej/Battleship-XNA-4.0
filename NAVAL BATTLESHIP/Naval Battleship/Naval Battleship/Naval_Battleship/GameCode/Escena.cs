@@ -4,6 +4,7 @@ using NavalBattleship.Particles;
 using Xengine;
 using Microsoft.Xna.Framework;
 using System;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace NavalBattleship
 {
@@ -158,13 +159,14 @@ namespace NavalBattleship
             {
                 item.Draw();
             }
-            // Dibuja las particulas
-            //TODO PORTSprite.Graphics.GraphicsDevice.RenderState.DepthBufferEnable = false;    
+            // Dibuja las particulas   
+
+            Sprite.Graphics.GraphicsDevice.DepthStencilState = DepthStencilState.Default;
             foreach (var item in sorteable)
             {
                 item.Draw();
             }
-            //TODO PORTSprite.Graphics.GraphicsDevice.RenderState.DepthBufferEnable = true;  
+            Sprite.Graphics.GraphicsDevice.DepthStencilState = DepthStencilState.None; 
         }
 
         public void DrawModel()

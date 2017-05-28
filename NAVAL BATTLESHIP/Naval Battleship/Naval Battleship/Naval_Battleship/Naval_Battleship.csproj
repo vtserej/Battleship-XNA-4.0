@@ -114,7 +114,6 @@
     <Compile Include="Particles\SmokeGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Game1.cs" />
     <Compile Include="Screens\CreditsScreen.cs" />
     <Compile Include="Screens\DialogScreen.cs" />
     <Compile Include="Screens\GameScreen.cs" />

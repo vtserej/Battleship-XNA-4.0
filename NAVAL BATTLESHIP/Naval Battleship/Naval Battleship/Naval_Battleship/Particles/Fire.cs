@@ -4,17 +4,17 @@ using System.Text;
 using Xengine;
 using NavalBattleship.GameCode;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics; 
+using Microsoft.Xna.Framework.Graphics;
 
 namespace NavalBattleship.Particles
 {
-    class Fire : Particle , IParticle  
+    class Fire : Particle, IParticle
     {
         float x, y;
         float angleRot;
         float transVert = -0.3f;
         float transHorz;
-        float horzInc = 0.00025f; 
+        float horzInc = 0.00025f;
         bool begin = true;
         Vector3 translate;
         int direction;
@@ -23,7 +23,7 @@ namespace NavalBattleship.Particles
         {
             base.scale = 1;
             alpha = 0;
-            alpha += (float)(randomizer.NextDouble() * 0.1);   
+            alpha += (float)(randomizer.NextDouble() * 0.1);
             direction = Game.Alternator();
             if (direction == 1)
             {
@@ -42,12 +42,12 @@ namespace NavalBattleship.Particles
                 x += Game.BoardSeparation;
             }
             position = new Vector3(x, 0, y); ;
-            translate = new Vector3(transHorz, transVert, 0);   
+            translate = new Vector3(transHorz, transVert, 0);
         }
 
         public bool IsDeath()
         {
-            return death; 
+            return death;
         }
 
         public void Update()
@@ -72,28 +72,28 @@ namespace NavalBattleship.Particles
             transVert += 0.015f * timeElapse;
             transHorz += horzInc * direction * timeElapse; ;
             translate.X = transHorz;
-            translate.Y = (transVert + 0.7f) * timeElapse; ; 
+            translate.Y = (transVert + 0.7f) * timeElapse; ;
             time++;
         }
 
         public void Draw()
         {
-            if (base.death == false  )
+            if (base.death == false)
             {
                 if (alpha > 0)
                 {
                     Sprite.BasicEffect.View = Matrix.CreateScale(scale) *
                                               Matrix.CreateRotationZ(Helper.DegreeToRad(angleRot)) *
                                               Matrix.CreateBillboard(position + translate, Camara.Position, Vector3.Up, Camara.ForwardVector) *
-                                              Camara.View;;
+                                              Camara.View;
                     DrawParticle(alpha);
                     Sprite.BasicEffect.View = Camara.View;
                 }
                 else
                 {
                     base.death = true;
-                } 
-            } 
+                }
+            }
         }
     }
 }

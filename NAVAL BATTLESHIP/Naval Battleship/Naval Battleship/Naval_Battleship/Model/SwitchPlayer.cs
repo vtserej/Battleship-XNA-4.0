@@ -4,11 +4,11 @@ using System.Text;
 using NavalBattleship.GameCode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Xengine; 
+using Xengine;
 
 namespace NavalBattleship.Models
 {
-    public class SwitchPlayer : ModelClass , IModel ,IShipModel 
+    public class SwitchPlayer : ModelClass, IModel, IShipModel
     {
         Texture2D texturePlayer;
         Texture2D textureCPU;
@@ -29,16 +29,16 @@ namespace NavalBattleship.Models
             {
                 areaRectangle = Layout.CalculateTotalLayout(new Rectangle(1157, 45, 110, 110));
             }
-            
+
         }
 
         public new void Create()
-        {   
-            texturePlayer = EngineContent.GetTextureByName("logoPlayer"); 
+        {
+            texturePlayer = EngineContent.GetTextureByName("logoPlayer");
             textureCPU = EngineContent.GetTextureByName("logoCPU");
             textureID = texturePlayer;
             base.file = "sphere";
-            base.Create(); 
+            base.Create();
         }
 
         public void Update()
@@ -47,7 +47,7 @@ namespace NavalBattleship.Models
             updateFreq++;
             if (updateFreq == 15)
             {
-                updateFreq = 0; 
+                updateFreq = 0;
                 if (game.CurrentPlayer == Player.Person)
                 {
                     textureID = texturePlayer;
@@ -55,8 +55,8 @@ namespace NavalBattleship.Models
                 else
                 {
                     textureID = textureCPU;
-                } 
-            }     
+                }
+            }
         }
 
         public void UpdateModel()
@@ -69,14 +69,12 @@ namespace NavalBattleship.Models
 
         public void DrawModel()
         {
-            return;
-
             Camara.SelectedMatrix = CameraMatrixSelected.Projection;
             Camara.PushMatrix();
             Camara.SelectedMatrix = CameraMatrixSelected.View;
             Camara.PushMatrix();
             Camara.View = Matrix.CreateRotationY(Helper.DegreeToRad(angleRot)) *
-                          Matrix.CreateScale(0.5f) *  
+                          Matrix.CreateScale(0.5f) *
                           Matrix.CreateLookAt(new Vector3(5, 5, 5), new Vector3(0, 0, 0), Vector3.Up);
 
             Viewport original = Sprite.Graphics.GraphicsDevice.Viewport;
@@ -93,12 +91,12 @@ namespace NavalBattleship.Models
                 foreach (BasicEffect effect in mesh.Effects)
                 {
                     effect.EnableDefaultLighting();
-                    effect.Alpha = 1; 
+                    effect.Alpha = 1;
                     effect.World = mesh.ParentBone.Transform * Matrix.CreateFromYawPitchRoll(0, -MathHelper.PiOver2, 0);
                     effect.View = Camara.View;
                     effect.Projection = Camara.Projection;
                     effect.TextureEnabled = true;
-                    effect.Texture = textureID; 
+                    effect.Texture = textureID;
                 }
                 // Draw the mesh, using the effects set above.
                 mesh.Draw();
@@ -107,7 +105,7 @@ namespace NavalBattleship.Models
             Camara.SelectedMatrix = CameraMatrixSelected.Projection;
             Sprite.Graphics.GraphicsDevice.Viewport = original;
             Camara.PopMatrix();
-            Camara.SelectedMatrix = CameraMatrixSelected.View;   
+            Camara.SelectedMatrix = CameraMatrixSelected.View;
         }
 
         public new void Draw()

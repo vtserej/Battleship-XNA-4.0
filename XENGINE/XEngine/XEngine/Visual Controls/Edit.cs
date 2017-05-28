@@ -107,7 +107,7 @@ namespace Xengine.WindowsControls
         public void Draw()
         {
             //Sprite.Graphics.GraphicsDevice.ScissorRectangle = scissorRectangle;
-            //Sprite.DrawBoxFrame(areaRectangle, Color.White, Color.Black, 1);
+            Sprite.DrawBoxFrame(areaRectangle, Color.White, Color.Black, 1);
             //border of the control 
             Sprite.SpriteBatch.End();
 

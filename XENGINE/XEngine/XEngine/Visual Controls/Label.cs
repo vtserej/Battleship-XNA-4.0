@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;  
+using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -16,7 +16,7 @@ namespace Xengine.WindowsControls
         Function myFunction;
         FunctionParameter functionParameter;
         Aligment aligment = Aligment.Left;
-        object objeto; 
+        object objeto;
 
         #endregion
 
@@ -37,7 +37,7 @@ namespace Xengine.WindowsControls
             base.fontId = font;
         }
 
-        public Label(Function function,Rectangle rec, SpriteFont font, Aligment aligment)
+        public Label(Function function, Rectangle rec, SpriteFont font, Aligment aligment)
         {
             myFunction = function;
             base.areaRectangle = rec;
@@ -69,7 +69,7 @@ namespace Xengine.WindowsControls
 
         public string AccesibleName()
         {
-            return base.accesibleName; 
+            return base.accesibleName;
         }
 
         public bool Discard()
@@ -79,14 +79,14 @@ namespace Xengine.WindowsControls
 
         public int ZOrder()
         {
-            return base.zOrder; 
+            return base.zOrder;
         }
 
         public void Create()
         {
             if (!areaRectangle.IsEmpty)
             {
-                //port  textSize = fontId.MeasureString(text);
+                textSize = fontId.MeasureString(text);
                 if (textSize.X < areaRectangle.Width && textSize.Y < areaRectangle.Height)
                 {
                     if (aligment == Aligment.Center)
@@ -94,10 +94,16 @@ namespace Xengine.WindowsControls
                         pos = new Vector2(areaRectangle.X + (areaRectangle.Width - textSize.X) / 2,
                                 areaRectangle.Y + ((areaRectangle.Height - textSize.Y) / 2));
                     }
+                    else
                     if (aligment == Aligment.Right)
                     {
-                        pos.X = areaRectangle.X + areaRectangle.Width - (int)textSize.X; 
+                        pos.X = areaRectangle.X + areaRectangle.Width - (int)textSize.X;
                         pos.Y = areaRectangle.Y + ((areaRectangle.Height - textSize.Y) / 2);
+                    }
+                    else
+                    {
+                        pos.X = areaRectangle.X;
+                        pos.Y = areaRectangle.Y;
                     }
                 }
                 else
@@ -107,7 +113,7 @@ namespace Xengine.WindowsControls
                         pos = new Vector2(areaRectangle.X + (areaRectangle.Width - textSize.X) / 2,
                                 areaRectangle.Y + ((areaRectangle.Height - textSize.Y) / 2));
                     }
-                }      
+                }
             }
         }
 
@@ -120,7 +126,7 @@ namespace Xengine.WindowsControls
                 if (!areaRectangle.IsEmpty)
                     pos = new Vector2(areaRectangle.X + (areaRectangle.Width - textSize.X) / 2,
                          areaRectangle.Y + ((areaRectangle.Height - textSize.Y) / 2));
-               
+
             }
             else
             {
@@ -132,13 +138,13 @@ namespace Xengine.WindowsControls
                         pos = new Vector2(areaRectangle.X + (areaRectangle.Width - textSize.X) / 2,
                                areaRectangle.Y + ((areaRectangle.Height - textSize.Y) / 2));
                 }
-            }      
+            }
         }
 
         public void Draw()
         {
-            Sprite.DrawSprite(areaRectangle, Color.Red);     
-            Sprite.SpriteBatch.DrawString(fontId, text, pos, Color.White);  
+            //Sprite.DrawSprite(areaRectangle, Color.Red);     
+            Sprite.SpriteBatch.DrawString(fontId, text, pos, Color.White);
         }
     }
 }

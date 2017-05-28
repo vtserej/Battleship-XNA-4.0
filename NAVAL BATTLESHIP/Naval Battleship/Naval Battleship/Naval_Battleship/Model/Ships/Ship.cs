@@ -253,8 +253,8 @@ namespace NavalBattleship.Models
                         effect.World = mesh.ParentBone.Transform * Matrix.CreateFromYawPitchRoll(0, -MathHelper.PiOver2, 0);
                         effect.View = Camara.View;
                         effect.Projection = Camara.Projection;
-                        effect.TextureEnabled = true;
-                        effect.Texture = textureBurn;
+                        //TODO PORT effect.TextureEnabled = true;
+                        //effect.Texture = textureBurn;                        
                     }
                     // Draw the mesh, using the effects set above.
                     mesh.Draw();

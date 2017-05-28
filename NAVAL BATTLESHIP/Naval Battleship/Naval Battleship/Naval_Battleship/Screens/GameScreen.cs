@@ -582,16 +582,16 @@ namespace NavalBattleship.Screens
 
         public void Draw()
         {
-            //Sprite.Graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
+            Sprite.Graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            //Sprite.BasicEffect.FogEnabled = true;
-            //Sprite.BasicEffect.FogColor = Color.CornflowerBlue.ToVector3();
-            //Sprite.BasicEffect.FogStart = 15;
-            //Sprite.BasicEffect.FogEnd = 25;
+            Sprite.BasicEffect.FogEnabled = true;
+            Sprite.BasicEffect.FogColor = Color.CornflowerBlue.ToVector3();
+            Sprite.BasicEffect.FogStart = 25;
+            Sprite.BasicEffect.FogEnd = 35;
 
             manager.Escena.Draw();
 
-            //Sprite.BasicEffect.FogEnabled = false;    
+            Sprite.BasicEffect.FogEnabled = false;    
 
             base.DrawControls();
             manager.Escena.DrawModel();   

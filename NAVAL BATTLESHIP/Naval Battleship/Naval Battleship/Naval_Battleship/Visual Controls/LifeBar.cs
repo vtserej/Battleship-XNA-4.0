@@ -43,8 +43,6 @@ namespace NavalBattleship.Controls
             return base.zOrder;
         }
 
-
-
         public void Create()
         { }
 

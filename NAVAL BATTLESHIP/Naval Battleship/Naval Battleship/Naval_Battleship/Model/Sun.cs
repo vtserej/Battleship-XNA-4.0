@@ -51,8 +51,7 @@ namespace NavalBattleship.Models
 
             Sprite.BasicEffect.View = Matrix.CreateTranslation(0, 0, -1) * Sprite.BasicEffect.View; 
             Sprite.BasicEffect.View = Matrix.CreateScale(4) * Sprite.BasicEffect.View;  
-            
-            
+                   
             
             DxHelper.DrawSquare(sunGlow);
             Sprite.BasicEffect.Alpha = 1;

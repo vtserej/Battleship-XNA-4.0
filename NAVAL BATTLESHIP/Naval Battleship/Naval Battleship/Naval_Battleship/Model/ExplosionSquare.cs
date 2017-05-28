@@ -88,32 +88,24 @@ namespace NavalBattleship.Models
 
             Sprite.BasicEffect.LightingEnabled = false;
             Vector3 diffuseColor = Sprite.BasicEffect.DiffuseColor;
-            Sprite.BasicEffect.DiffuseColor = color;   
+            Sprite.BasicEffect.DiffuseColor = color;
 
-            //Sprite.BasicEffect.Begin();
+            foreach (EffectPass pass in Sprite.BasicEffect.CurrentTechnique.Passes)
+            {
+                pass.Apply();
 
-            //foreach (EffectPass pass in Sprite.BasicEffect.CurrentTechnique.Passes)
-            //{
-            //    pass.Begin();
-
-            //    Sprite.Graphics.GraphicsDevice.VertexDeclaration = Sprite.VertexDeclaration;
-
-            //    Sprite.Graphics.GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>(
-            //        PrimitiveType.TriangleList,
-            //        pointList,
-            //        0,  // vertex buffer offset to add to each element of the index buffer
-            //        2  // number of vertices in pointList
-            //        );
-
-
-            //    pass.End();
-            //}
+                Sprite.Graphics.GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>(
+                    PrimitiveType.TriangleList,
+                    pointList,
+                    0,  // vertex buffer offset to add to each element of the index buffer
+                    2  // number of vertices in pointList
+                    );
+            }
 
             Sprite.BasicEffect.View = Camara.View;
 
             Sprite.BasicEffect.DiffuseColor = diffuseColor; 
             
-            //Sprite.BasicEffect.End();
 
             Sprite.BasicEffect.LightingEnabled = true;
         }
