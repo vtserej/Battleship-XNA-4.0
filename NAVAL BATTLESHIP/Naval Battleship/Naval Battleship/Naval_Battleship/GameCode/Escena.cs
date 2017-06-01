@@ -159,14 +159,14 @@ namespace NavalBattleship
             {
                 item.Draw();
             }
-            // Dibuja las particulas   
 
-            Sprite.Graphics.GraphicsDevice.DepthStencilState = DepthStencilState.Default;
+            // Dibuja las particulas   
+            Sprite.Graphics.GraphicsDevice.DepthStencilState = DepthStencilState.None;
             foreach (var item in sorteable)
             {
                 item.Draw();
             }
-            Sprite.Graphics.GraphicsDevice.DepthStencilState = DepthStencilState.None; 
+            Sprite.Graphics.GraphicsDevice.DepthStencilState = DepthStencilState.Default; 
         }
 
         public void DrawModel()

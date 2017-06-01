@@ -24,6 +24,8 @@ namespace Xengine
 
         static VertexPositionColor[] pointList;
 
+        static VertexDeclaration vertexDeclaration;
+        
         #endregion
 
         #region Properties
@@ -52,11 +54,21 @@ namespace Xengine
             set { Sprite.basicEffect = value; }
         }
 
+        public static VertexDeclaration VertexDeclaration
+        {
+            get { return Sprite.vertexDeclaration; }
+            set { Sprite.vertexDeclaration = value; }
+        }
+
+
         #endregion
 
         static public void Create()
         {
             pointList = new VertexPositionColor[5];
+
+            //vertexDeclaration = new VertexDeclaration(graphics.GraphicsDevice,
+            //                                VertexPositionTexture.VertexElements);
 
             viewMatrix = Matrix.CreateLookAt(
               new Vector3(0.0f, 0.0f, 1.0f),
@@ -109,25 +121,17 @@ namespace Xengine
             pointList[3] = new VertexPositionColor(new Vector3(rectangle.X, rectangle.Y + rectangle.Height, 0), color);
             pointList[4] = new VertexPositionColor(new Vector3(rectangle.X, rectangle.Y, 0), color);
 
-            //TODO PORT
-            //Sprite.BasicEffect.Begin();
+            foreach (EffectPass pass in Sprite.BasicEffect.CurrentTechnique.Passes)
+            {
+                pass.Apply();
 
-            //foreach (EffectPass pass in Sprite.BasicEffect.CurrentTechnique.Passes)
-            //{
-            //    pass.Begin();
-            //    Sprite.Graphics.GraphicsDevice.VertexDeclaration = new VertexDeclaration(Sprite.Graphics.GraphicsDevice,
-            //                                VertexPositionColor.VertexElements);
-
-            //    Sprite.Graphics.GraphicsDevice.DrawUserPrimitives<VertexPositionColor>(
-            //        PrimitiveType.LineStrip,
-            //        pointList,
-            //        0,  // vertex buffer offset to add to each element of the index buffer
-            //        4  // number of vertices in pointList
-            //        );
-            //    pass.End();
-            //}
-
-            //Sprite.BasicEffect.End();
+                Sprite.Graphics.GraphicsDevice.DrawUserPrimitives<VertexPositionColor>(
+                    PrimitiveType.LineStrip,
+                    pointList,
+                    0,  // vertex buffer offset to add to each element of the index buffer
+                    4  // number of vertices in pointList
+                    );
+            }
 
             Sprite.basicEffect.TextureEnabled = true;
             Sprite.basicEffect.VertexColorEnabled = false;
